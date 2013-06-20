@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://api.namebright.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DomainService" targetNamespace="https://api.namebright.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IDomainService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="https://api.namebright.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/DomainServicesLib" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" />
+      <xs:element name="GetDomains">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDomainsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="GetDomainsResult" nillable="true" type="q1:ArrayOfDomain" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDomain">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDomainResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="GetDomainResult" nillable="true" type="q2:Domain" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DomainIsAvailable">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DomainIsAvailableResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DomainIsAvailableResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNameServers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNameServersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetNameServersResult" nillable="true" type="q3:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeNameServers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nameservers" nillable="true" type="q4:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeNameServersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeNameServersResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeLocking">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="locked" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeLockingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeLockingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePrivacyProtection">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="privacy" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePrivacyProtectionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangePrivacyProtectionResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeAutoRenew">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="autoRenew" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeAutoRenewResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeAutoRenewResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeContacts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="contacts" nillable="true" type="q5:DomainContacts" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeContactsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeContactsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDomainContacts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDomainContactsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="GetDomainContactsResult" nillable="true" type="q6:DomainContacts" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetHostRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetHostRecordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="GetHostRecordsResult" nillable="true" type="q7:DomainHostRecords" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSARecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="aRecord" nillable="true" type="q8:ARecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSARecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSARecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSCNAMERecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="cnameRecord" nillable="true" type="q9:CNAMERecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSCNAMERecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSCNAMERecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSMXRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="mxRecord" nillable="true" type="q10:MXRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSMXRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSMXRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSAAAARecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="aaaaRecord" nillable="true" type="q11:AAAARecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSAAAARecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSAAAARecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSTXTRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="txtRecord" nillable="true" type="q12:TXTRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSTXTRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSTXTRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSSRVRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="srvRecord" nillable="true" type="q13:SRVRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSSRVRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSSRVRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSSPFRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="spfRecord" nillable="true" type="q14:SPFRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateDNSSPFRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateDNSSPFRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSARecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="aRecord" nillable="true" type="q15:ARecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSARecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSARecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSCNAMERecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="cnameRecord" nillable="true" type="q16:CNAMERecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSCNAMERecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSCNAMERecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSMXRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="mxRecord" nillable="true" type="q17:MXRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSMXRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSMXRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSAAAARecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="aaaaRecord" nillable="true" type="q18:AAAARecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSAAAARecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSAAAARecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSTXTRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="txtRecord" nillable="true" type="q19:TXTRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSTXTRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSTXTRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSSRVRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="srvRecord" nillable="true" type="q20:SRVRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSSRVRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSSRVRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSSPFRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" minOccurs="0" name="spfRecord" nillable="true" type="q21:SPFRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSSPFRecordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteDNSSPFRecordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegisterDomain">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegisterDomainResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RegisterDomainResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RenewDomain">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RenewDomainResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RenewDomainResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DomainServicesLib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainServicesLib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfDomain">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Domain" nillable="true" type="tns:Domain" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDomain" nillable="true" type="tns:ArrayOfDomain" />
+      <xs:complexType name="Domain">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            DataContract representing a domain.
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AutoRenew" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The auto renew status on the domain.
+            </summary>
+                <value>
+            The auto renew status: "True" or "False"
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The NameBright category which contains the domain.
+            </summary>
+                <value>
+            A category name.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ExpirationDate" type="xs:dateTime">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The expiration date of the domain.
+            </summary>
+                <value>
+            The expiration date.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Locked" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The status of the locked flag on the domain.
+            </summary>
+                <value>
+            The locked flag's status: "True" or "False".
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The name of the domain.
+            </summary>
+                <value>
+            The name of the domain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The status of the domain.
+            </summary>
+                <value>
+            The status. One of: "Active", "Expired", "Redemption", "NotActive".
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="WhoIsPrivacy" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The whois privacy status on the domain.
+            </summary>
+                <value>
+            The whois privacy status: "True" or "False"
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Domain" nillable="true" type="tns:Domain" />
+      <xs:complexType name="DomainContacts">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            The contacts assigned to the domain.
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdministrativeContact" nillable="true" type="tns:Contact">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the administrative contact.
+            </summary>
+                <value>
+            The administrative contact.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="RegistrantContact" nillable="true" type="tns:Contact">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the registrant contact.
+            </summary>
+                <value>
+            The registrant contact.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TechnicalContact" nillable="true" type="tns:Contact">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the technical contact.
+            </summary>
+                <value>
+            The technical contact.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DomainContacts" nillable="true" type="tns:DomainContacts" />
+      <xs:complexType name="Contact">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A contact
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the address1.
+            </summary>
+                <value>
+            The address1.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the address2.
+            </summary>
+                <value>
+            The address2.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the city.
+            </summary>
+                <value>
+            The city.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the country.
+            </summary>
+                <value>
+            The country.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the department.
+            </summary>
+                <value>
+            The department.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the email.
+            </summary>
+                <value>
+            The email.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the fax.
+            </summary>
+                <value>
+            The fax.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the first name.
+            </summary>
+                <value>
+            The first name.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the last name.
+            </summary>
+                <value>
+            The last name.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the organization.
+            </summary>
+                <value>
+            The organization.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the phone.
+            </summary>
+                <value>
+            The phone.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the postal code.
+            </summary>
+                <value>
+            The postal code.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Gets or sets the region.
+            </summary>
+                <value>
+            The region.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Contact" nillable="true" type="tns:Contact" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainServicesLib.HostRecords" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="DomainHostRecords">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A response object which contains host records for a specific domain.
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AAAARecords" nillable="true" type="tns:ArrayOfAAAARecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of AAAA Records for a specific domain.
+            </summary>
+                <value>
+            The AAAA records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ARecords" nillable="true" type="tns:ArrayOfARecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of A Records for a specific domain.
+            </summary>
+                <value>
+            The A records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="CNAMERecords" nillable="true" type="tns:ArrayOfCNAMERecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of CNAME Records for a specific domain.
+            </summary>
+                <value>
+            The CNAME records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MXRecords" nillable="true" type="tns:ArrayOfMXRecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of MX Records for a specific domain.
+            </summary>
+                <value>
+            The MX records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SPFRecords" nillable="true" type="tns:ArrayOfSPFRecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of SPF Records for a specific domain.
+            </summary>
+                <value>
+            The SPF records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SRVRecords" nillable="true" type="tns:ArrayOfSRVRecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of SRV Records for a specific domain.
+            </summary>
+                <value>
+            The SRV records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TXTRecords" nillable="true" type="tns:ArrayOfTXTRecord">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A collection of TXT Records for a specific domain.
+            </summary>
+                <value>
+            The TXT records.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DomainHostRecords" nillable="true" type="tns:DomainHostRecords" />
+      <xs:complexType name="ArrayOfAAAARecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AAAARecord" nillable="true" type="tns:AAAARecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAAAARecord" nillable="true" type="tns:ArrayOfAAAARecord" />
+      <xs:complexType name="AAAARecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS AAAA Record. See: http://en.wikipedia.org/wiki/List_of_DNS_record_types#AAAA
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IPV6Address" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The IPv6 address associated with the subdomain field.
+            </summary>
+                <value>
+            The IPv6 address.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AAAARecord" nillable="true" type="tns:AAAARecord" />
+      <xs:complexType name="ArrayOfARecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ARecord" nillable="true" type="tns:ARecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfARecord" nillable="true" type="tns:ArrayOfARecord" />
+      <xs:complexType name="ARecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS A Record. See: http://en.wikipedia.org/wiki/List_of_DNS_record_types#A
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IPV4Address" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The IPv4 address associated with the subdomain field.
+            </summary>
+                <value>
+            The IPv4 address.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ARecord" nillable="true" type="tns:ARecord" />
+      <xs:complexType name="ArrayOfCNAMERecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CNAMERecord" nillable="true" type="tns:CNAMERecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCNAMERecord" nillable="true" type="tns:ArrayOfCNAMERecord" />
+      <xs:complexType name="CNAMERecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS CNAME record. See: http://en.wikipedia.org/wiki/CNAME_record
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RedirectDomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The target for the redirect.
+            </summary>
+                <value>
+            The redirect domain: a full domain name like "www.example.com".
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CNAMERecord" nillable="true" type="tns:CNAMERecord" />
+      <xs:complexType name="ArrayOfMXRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MXRecord" nillable="true" type="tns:MXRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMXRecord" nillable="true" type="tns:ArrayOfMXRecord" />
+      <xs:complexType name="MXRecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS MX Record. See: http://en.wikipedia.org/wiki/MX_record
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MailServer" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The mail server name for the MX record. E.g. "mail.example.com".
+            </summary>
+                <value>
+            A  mail server name.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Priority" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A number represtenting the priority order of the mail server in this MX record. Servers with lower priority numbers will be preferred by email clients.
+            </summary>
+                <value>
+            The priority.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MXRecord" nillable="true" type="tns:MXRecord" />
+      <xs:complexType name="ArrayOfSPFRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPFRecord" nillable="true" type="tns:SPFRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSPFRecord" nillable="true" type="tns:ArrayOfSPFRecord" />
+      <xs:complexType name="SPFRecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS SPF Record. See http://www.openspf.org/ and http://en.wikipedia.org/wiki/Sender_Policy_Framework
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SPFRecordValue" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The SPF record value. See: http://www.openspf.org/SPF_Record_Syntax
+            </summary>
+                <value>
+            The SPF record value.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SPFRecord" nillable="true" type="tns:SPFRecord" />
+      <xs:complexType name="ArrayOfSRVRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SRVRecord" nillable="true" type="tns:SRVRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSRVRecord" nillable="true" type="tns:ArrayOfSRVRecord" />
+      <xs:complexType name="SRVRecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            An DNS SRV Record. See: http://en.wikipedia.org/wiki/SRV_record. 
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Port" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The TCP or UDP port on which to the service is to be found.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Priority" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The priority of the target host. Lower value means more preferred.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Protocol" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The transport protocol of the desired service.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Service" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A symbolic name for the service.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Target" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The canonical hostname of the machine providing the service.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Weight" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A relative weight for records with the same priority.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SRVRecord" nillable="true" type="tns:SRVRecord" />
+      <xs:complexType name="ArrayOfTXTRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TXTRecord" nillable="true" type="tns:TXTRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTXTRecord" nillable="true" type="tns:ArrayOfTXTRecord" />
+      <xs:complexType name="TXTRecord">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            A DNS TXT Record. See: http://en.wikipedia.org/wiki/List_of_DNS_record_types#TXT.
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Subdomain" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and "*" matches "anything.example.com", "example.com", or "www.example.com".
+            </summary>
+                <value>
+            The subdomain.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TTLSeconds" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The Time-To-Live value for this host record in seconds. This tells computers ans servers the maximum amount of time that they can keep this record cached.
+            </summary>
+                <value>
+            The TTL value in seconds for this record.
+            </value>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TextRecord" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Text which provides additional custom information about a domain name. 
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TXTRecord" nillable="true" type="tns:TXTRecord" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IDomainService_GetDomains_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomains" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetDomains_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomainsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomain" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DomainIsAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:DomainIsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DomainIsAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DomainIsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetNameServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameServers" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetNameServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeNameServers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeNameServers" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeNameServers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeNameServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeLocking_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLocking" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeLocking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLockingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangePrivacyProtection_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePrivacyProtection" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangePrivacyProtection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePrivacyProtectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeAutoRenew_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeAutoRenew" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeAutoRenew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeAutoRenewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeContacts" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_ChangeContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetDomainContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomainContacts" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetDomainContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDomainContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetHostRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostRecords" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_GetHostRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSARecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSARecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSARecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSARecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSCNAMERecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSCNAMERecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSCNAMERecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSCNAMERecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSMXRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSMXRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSMXRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSMXRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSAAAARecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSAAAARecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSAAAARecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSAAAARecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSTXTRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSTXTRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSTXTRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSTXTRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSSRVRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSSRVRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSSRVRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSSRVRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSSPFRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSSPFRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_CreateDNSSPFRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDNSSPFRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSARecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSARecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSARecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSARecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSCNAMERecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSCNAMERecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSCNAMERecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSCNAMERecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSMXRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSMXRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSMXRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSMXRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSAAAARecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSAAAARecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSAAAARecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSAAAARecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSTXTRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSTXTRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSTXTRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSTXTRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSSRVRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSSRVRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSSRVRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSSRVRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSSPFRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSSPFRecord" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_DeleteDNSSPFRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSSPFRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_RegisterDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDomain" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_RegisterDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_RenewDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenewDomain" />
+  </wsdl:message>
+  <wsdl:message name="IDomainService_RenewDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenewDomainResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDomainService">
+    <wsdl:documentation>
+      <summary>
+            RPC endpoint for domain operations.
+            </summary>
+    </wsdl:documentation>
+    <wsdl:operation name="GetDomains">
+      <wsdl:documentation>
+        <summary>
+            Get a list of domains in the authenticated user's account accessible to the API application.
+            </summary>
+        <returns>A list of domains.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/GetDomains" message="tns:IDomainService_GetDomains_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/GetDomainsResponse" message="tns:IDomainService_GetDomains_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <wsdl:documentation>
+        <summary>
+            Gets a domain within the account.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>A domain</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/GetDomain" message="tns:IDomainService_GetDomain_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/GetDomainResponse" message="tns:IDomainService_GetDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DomainIsAvailable">
+      <wsdl:documentation>
+        <summary>
+            Checks the availability of the domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>
+          <c>true</c> if the domain is available for purchase. Note: not all top-level domains (tlds) are available for sale through the NameBright API.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DomainIsAvailable" message="tns:IDomainService_DomainIsAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DomainIsAvailableResponse" message="tns:IDomainService_DomainIsAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNameServers">
+      <wsdl:documentation>
+        <summary>
+            Returns the name servers assigned to a domain in your account.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>A list of name servers set on this domain.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/GetNameServers" message="tns:IDomainService_GetNameServers_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/GetNameServersResponse" message="tns:IDomainService_GetNameServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeNameServers">
+      <wsdl:documentation>
+        <summary>
+            Change the nameservers associated to a domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="nameservers">A list of nameservers. You are only allowed to set 4.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/ChangeNameServers" message="tns:IDomainService_ChangeNameServers_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/ChangeNameServersResponse" message="tns:IDomainService_ChangeNameServers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeLocking">
+      <wsdl:documentation>
+        <summary>
+            Changes the lock status of the domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="locked">if set to <c>true</c> will lock the domain.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/ChangeLocking" message="tns:IDomainService_ChangeLocking_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/ChangeLockingResponse" message="tns:IDomainService_ChangeLocking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePrivacyProtection">
+      <wsdl:documentation>
+        <summary>
+            Changes the whois privacy protection setting on the domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="privacy">if set to <c>true</c> will enable whois privacy protection for the domain.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/ChangePrivacyProtection" message="tns:IDomainService_ChangePrivacyProtection_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/ChangePrivacyProtectionResponse" message="tns:IDomainService_ChangePrivacyProtection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeAutoRenew">
+      <wsdl:documentation>
+        <summary>
+            Changes the auto renew setting on the domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="autoRenew">if set to <c>true</c> will enable auto renewal for the domain.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/ChangeAutoRenew" message="tns:IDomainService_ChangeAutoRenew_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/ChangeAutoRenewResponse" message="tns:IDomainService_ChangeAutoRenew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeContacts">
+      <wsdl:documentation>
+        <summary>
+            Changes the contacts.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="contacts">The contacts.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/ChangeContacts" message="tns:IDomainService_ChangeContacts_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/ChangeContactsResponse" message="tns:IDomainService_ChangeContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainContacts">
+      <wsdl:documentation>
+        <summary>
+            Gets the domain contacts.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>The contacts which are currently set on the domain.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/GetDomainContacts" message="tns:IDomainService_GetDomainContacts_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/GetDomainContactsResponse" message="tns:IDomainService_GetDomainContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHostRecords">
+      <wsdl:documentation>
+        <summary>
+            Gets host records set for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>A DomainHostRecords response object.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/GetHostRecords" message="tns:IDomainService_GetHostRecords_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/GetHostRecordsResponse" message="tns:IDomainService_GetHostRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSARecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS A record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="aRecord">A DNS A record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSARecord" message="tns:IDomainService_CreateDNSARecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSARecordResponse" message="tns:IDomainService_CreateDNSARecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSCNAMERecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS CNAME record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="cnameRecord">A DNS CNAME record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSCNAMERecord" message="tns:IDomainService_CreateDNSCNAMERecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSCNAMERecordResponse" message="tns:IDomainService_CreateDNSCNAMERecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSMXRecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS MX record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="mxRecord">A DNS MX record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSMXRecord" message="tns:IDomainService_CreateDNSMXRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSMXRecordResponse" message="tns:IDomainService_CreateDNSMXRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSAAAARecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS AAAA record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="aaaaRecord">A DNS AAAA record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSAAAARecord" message="tns:IDomainService_CreateDNSAAAARecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSAAAARecordResponse" message="tns:IDomainService_CreateDNSAAAARecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSTXTRecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS TXT record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="txtRecord">A DNS TXT record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSTXTRecord" message="tns:IDomainService_CreateDNSTXTRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSTXTRecordResponse" message="tns:IDomainService_CreateDNSTXTRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSSRVRecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS SRV record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="srvRecord">A DNS SRV record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSSRVRecord" message="tns:IDomainService_CreateDNSSRVRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSSRVRecordResponse" message="tns:IDomainService_CreateDNSSRVRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSSPFRecord">
+      <wsdl:documentation>
+        <summary>
+            Creates a DNS SPF record for the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="spfRecord">A DNS SPF record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSSPFRecord" message="tns:IDomainService_CreateDNSSPFRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/CreateDNSSPFRecordResponse" message="tns:IDomainService_CreateDNSSPFRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSARecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS A record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="aRecord">A DNS A record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSARecord" message="tns:IDomainService_DeleteDNSARecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSARecordResponse" message="tns:IDomainService_DeleteDNSARecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSCNAMERecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS CNAME record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="cnameRecord">A DNS CNAME record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSCNAMERecord" message="tns:IDomainService_DeleteDNSCNAMERecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSCNAMERecordResponse" message="tns:IDomainService_DeleteDNSCNAMERecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSMXRecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS MX record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="mxRecord">A DNS MX record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSMXRecord" message="tns:IDomainService_DeleteDNSMXRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSMXRecordResponse" message="tns:IDomainService_DeleteDNSMXRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSAAAARecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS AAAA record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="aaaaRecord">A DNS AAAA record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSAAAARecord" message="tns:IDomainService_DeleteDNSAAAARecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSAAAARecordResponse" message="tns:IDomainService_DeleteDNSAAAARecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSTXTRecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS TXT record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="txtRecord">A DNS TXT record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSTXTRecord" message="tns:IDomainService_DeleteDNSTXTRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSTXTRecordResponse" message="tns:IDomainService_DeleteDNSTXTRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSSRVRecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS SRV record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="srvRecord">A DNS SRV record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSSRVRecord" message="tns:IDomainService_DeleteDNSSRVRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSSRVRecordResponse" message="tns:IDomainService_DeleteDNSSRVRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSSPFRecord">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS SPF record.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="spfRecord">A DNS SPF record.</param>
+        <returns>
+          <c>true</c> if the operation succeeded; <c>false</c> otherwise.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSSPFRecord" message="tns:IDomainService_DeleteDNSSPFRecord_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/DeleteDNSSPFRecordResponse" message="tns:IDomainService_DeleteDNSSPFRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDomain">
+      <wsdl:documentation>
+        <summary>
+            Attempts to register the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>The order id associated with the transaction.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/RegisterDomain" message="tns:IDomainService_RegisterDomain_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/RegisterDomainResponse" message="tns:IDomainService_RegisterDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenewDomain">
+      <wsdl:documentation>
+        <summary>
+            Renews the given domain.
+            </summary>
+        <param name="domain">A naked domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <returns>The order id associated with the transaction.</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainService/RenewDomain" message="tns:IDomainService_RenewDomain_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainService/RenewDomainResponse" message="tns:IDomainService_RenewDomain_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpsBinding_IDomainService" type="tns:IDomainService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IDomainService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDomains">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/GetDomains" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/GetDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomainIsAvailable">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DomainIsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNameServers">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/GetNameServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeNameServers">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/ChangeNameServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeLocking">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/ChangeLocking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePrivacyProtection">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/ChangePrivacyProtection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeAutoRenew">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/ChangeAutoRenew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeContacts">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/ChangeContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainContacts">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/GetDomainContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHostRecords">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/GetHostRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSARecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSARecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSCNAMERecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSCNAMERecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSMXRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSMXRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSAAAARecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSAAAARecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSTXTRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSTXTRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSSRVRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSSRVRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDNSSPFRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/CreateDNSSPFRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSARecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSARecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSCNAMERecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSCNAMERecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSMXRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSMXRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSAAAARecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSAAAARecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSTXTRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSTXTRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSSRVRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSSRVRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSSPFRecord">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/DeleteDNSSPFRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDomain">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/RegisterDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewDomain">
+      <soap:operation soapAction="https://api.namebright.com/IDomainService/RenewDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DomainService">
+    <wsdl:port name="BasicHttpsBinding_IDomainService" binding="tns:BasicHttpsBinding_IDomainService">
+      <soap:address location="https://api.namebright.com/soap/DomainService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
