@@ -62,8 +62,8 @@ Restrictions
 ------------ 
 
 * Purchases: The API currently supports registering and renewing domains 
-within your account by drawing on your account's funded balance. You may 
-only make purchases through the API by funding your account. 
+within your account by drawing on your account's pre-funded balance. You 
+may only make purchases through the API by pre-funding your account. 
 
 * Rate limits: The API enforces a limit of 30 requests per 30 seconds. 
 * IP Whitelist: The API checks your IPv4 address against the whitelist 
