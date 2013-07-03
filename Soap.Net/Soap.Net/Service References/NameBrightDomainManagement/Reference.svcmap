@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="357e4f19-ef77-4374-93c9-3e5ccd30bea4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9ad8c230-d56b-445f-befa-cef11bc37a24" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://api.namebright.com/soap/DomainService.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://api.namebright.com/soap/DomainManagement.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DomainService.wsdl" MetadataType="Wsdl" ID="9d10ea77-1249-48a0-bac2-ee9c3af278ad" SourceId="1" SourceUrl="https://api.namebright.com/soap/DomainService.svc?singleWsdl" />
+    <MetadataFile FileName="DomainManagement.wsdl" MetadataType="Wsdl" ID="4d316244-086e-4a90-8993-42d5d9b332b3" SourceId="1" SourceUrl="https://api.namebright.com/soap/DomainManagement.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

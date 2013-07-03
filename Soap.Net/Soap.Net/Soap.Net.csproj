@@ -51,7 +51,12 @@
     <Compile Include="OAuth2Helpers\OAuth2HeaderBehavior.cs" />
     <Compile Include="OAuth2Helpers\OAuth2HeaderBehaviorExtensionElement.cs" />
     <Compile Include="OAuth2Helpers\OAuth2HeaderInspector.cs" />
-    <Compile Include="Service References\NameBrightDomainApi\Reference.cs">
+    <Compile Include="Service References\NameBrightDomainManagement\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NameBrightDomainPurchasing\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -62,14 +67,114 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\NameBrightDomainApi\DomainService.wsdl" />
-    <None Include="Service References\NameBrightDomainApi\NameBright.DomainApi.Soap.NameBrightDomainApi.Domain.datasource">
+    <None Include="Service References\NameBrightDomainManagement\DomainManagement.wsdl" />
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.AccountDomain.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NameBrightDomainApi\NameBright.DomainApi.Soap.NameBrightDomainApi.DomainContacts.datasource">
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.AccountSearchResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NameBrightDomainApi\NameBright.DomainApi.Soap.NameBrightDomainApi.DomainHostRecords.datasource">
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.ChangeAutoRenewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.ChangeContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.ChangeLockingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.ChangeNameServersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.ChangePrivacyProtectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.Contacts.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSAAAARecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSARecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSCNAMERecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSMXRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSSPFRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSSRVRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSTXTRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSAAAARecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSARecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSCNAMERecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSMXRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSSPFRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSSRVRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSTXTRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteNameServersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DNSNameServers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DomainApiSuccess.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.GetAccountDomainResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.GetDomainContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.GetHostRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.GetNameServersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.HostRecords.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\DomainPurchasing.wsdl" />
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.AccountFinancialInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.DomainAvailability.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.GetDomainAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.RegisterDomainResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.RenewDomainResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -77,16 +182,29 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\NameBrightDomainApi\" />
+    <WCFMetadataStorage Include="Service References\NameBrightDomainManagement\" />
+    <WCFMetadataStorage Include="Service References\NameBrightDomainPurchasing\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\NameBrightDomainApi\configuration91.svcinfo" />
+    <None Include="Service References\NameBrightDomainManagement\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\NameBrightDomainApi\configuration.svcinfo" />
+    <None Include="Service References\NameBrightDomainManagement\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\NameBrightDomainApi\Reference.svcmap">
+    <None Include="Service References\NameBrightDomainManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NameBrightDomainPurchasing\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NameBrightDomainPurchasing\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NameBrightDomainPurchasing\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

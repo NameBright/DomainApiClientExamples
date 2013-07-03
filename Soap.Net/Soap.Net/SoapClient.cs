@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using NameBright.DomainApi.Soap.NameBrightDomainApi;
+using NameBright.DomainApi.Soap.NameBrightDomainPurchasing;
 using NameBright.DomainApi.Soap.OAuth2Helpers;
 using Newtonsoft.Json;
 namespace NameBright.DomainApi.Soap
@@ -13,17 +13,11 @@ namespace NameBright.DomainApi.Soap
             //api.namebright.com apis require OAuth2 bearer tokens for all requests.
             RetrieveAccessToken();
 
-            DomainServiceClient client = new DomainServiceClient();
+            DomainPurchasingClient purchasingClient = new DomainPurchasingClient();
             
             //Test domain availability
-            bool result; 
-
-            result = client.DomainIsAvailable("namebright.com");
-            Console.WriteLine("namebright.com: " + result);
-
-            result = client.DomainIsAvailable("aaaaabbbbbccccc.com");
-            Console.WriteLine("aaaaabbbbbccccc.com: " + result);
-
+            var result = purchasingClient.GetDomainAvailability("namebright.com");
+            Console.WriteLine("namebright.com: " + JsonConvert.SerializeObject(result));
         }
 
         static void RetrieveAccessToken()
@@ -32,14 +26,14 @@ namespace NameBright.DomainApi.Soap
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri("https://api.namebright.com/");
-
+                
                 //TODO: fill in client_id and client_secret below.
                 // Your application name will be in the form of "account name:application name". e.g. "MyAccount:MyApp"
                 // Go here to manage api applications for your account: https://www.namebright.com/Settings#Api
                 var content = new FormUrlEncodedContent(new[] {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
-                    new KeyValuePair<string, string>("client_id", ""),
-                    new KeyValuePair<string, string>("client_secret", "")
+                    new KeyValuePair<string, string>("client_id", /* FILL ME IN */ ""),
+                    new KeyValuePair<string, string>("client_secret", /* FILL ME IN */ "")
                 });
                 var result = httpClient.PostAsync("/auth/token", content).Result;
                 string resultContent = result.Content.ReadAsStringAsync().Result;
