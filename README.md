@@ -41,8 +41,7 @@ authentication service. Each code example shows you how to do this but
 you need to set valid values for the cilent_id (NameBright's API 
 Application name) and client_secret fields. See: 
 https://api.namebright.com/auth/help and 
-http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified#applicat 
-ion-access for details. 
+http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified#application-access for details. 
 
 Each OAuth2 bearer token is valid for 30 minutes. If you are writing a 
 process which needs to run for longer than 30 minutes, it is recommended 
