@@ -77,5 +77,7 @@ Endpoints
 
 * OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
 https://api.namebright.com/auth/Help 
-* Domain API SOAP RPC: https://api.namebright.com/soap/DomainService.svc 
-WSDL URL: https://api.namebright.com/soap/DomainService.svc?singleWsdl 
+* Domain API SOAP RPC 
+  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.svc?singleWsdl
+  * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
+
