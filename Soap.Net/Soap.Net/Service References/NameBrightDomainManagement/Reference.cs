@@ -111,6 +111,8 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainManagement {
         
         private string StatusField;
         
+        private bool UpgradedDomainField;
+        
         private bool WhoIsPrivacyField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -197,6 +199,19 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainManagement {
                 if ((object.ReferenceEquals(this.StatusField, value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool UpgradedDomain {
+            get {
+                return this.UpgradedDomainField;
+            }
+            set {
+                if ((this.UpgradedDomainField.Equals(value) != true)) {
+                    this.UpgradedDomainField = value;
+                    this.RaisePropertyChanged("UpgradedDomain");
                 }
             }
         }

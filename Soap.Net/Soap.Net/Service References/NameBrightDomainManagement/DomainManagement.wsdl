@@ -563,6 +563,16 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="UpgradedDomain" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            A flag which indicates whether this domain has been upgraded or not.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="WhoIsPrivacy" type="xs:boolean">
             <xs:annotation>
               <xs:appinfo />
