@@ -17,7 +17,12 @@ namespace NameBright.DomainApi.Soap
             
             //Test domain availability
             var result = purchasingClient.GetDomainAvailability("namebright.com");
-            Console.WriteLine("namebright.com: " + JsonConvert.SerializeObject(result));
+            Console.WriteLine("namebright.com: " + JsonConvert.SerializeObject(result, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter()));
+
+            result = purchasingClient.GetDomainAvailability("thismustbeavailabile1234.com");
+            Console.WriteLine("thismustbeavailabile1234.com: " + JsonConvert.SerializeObject(result, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter()));
+
+            Console.ReadKey();
         }
 
         static void RetrieveAccessToken()

@@ -238,6 +238,16 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="OrderItemId" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The id associated with the order item for tracking purposes.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="ProductText" nillable="true" type="xs:string">
             <xs:annotation>
               <xs:appinfo />
@@ -324,7 +334,7 @@
           </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="AvailableForPurchase">
+          <xs:enumeration value="AvailableForRegistration">
             <xs:annotation>
               <xs:appinfo>
                 <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
@@ -373,7 +383,7 @@
           </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-          <xs:element name="AccountBalance" type="xs:double">
+          <xs:element name="AccountBalance" type="xs:decimal">
             <xs:annotation>
               <xs:appinfo />
               <xs:documentation>

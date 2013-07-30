@@ -201,7 +201,7 @@
       <xs:element name="CreateDNSARecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSARecordResult" nillable="true" type="q15:DomainApiSuccess" />
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSARecordResult" nillable="true" type="q15:ARecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -216,7 +216,7 @@
       <xs:element name="CreateDNSCNAMERecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSCNAMERecordResult" nillable="true" type="q17:DomainApiSuccess" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSCNAMERecordResult" nillable="true" type="q17:CNAMERecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -231,7 +231,7 @@
       <xs:element name="CreateDNSMXRecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSMXRecordResult" nillable="true" type="q19:DomainApiSuccess" />
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSMXRecordResult" nillable="true" type="q19:MXRecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -246,7 +246,7 @@
       <xs:element name="CreateDNSAAAARecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSAAAARecordResult" nillable="true" type="q21:DomainApiSuccess" />
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSAAAARecordResult" nillable="true" type="q21:AAAARecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -261,7 +261,7 @@
       <xs:element name="CreateDNSTXTRecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSTXTRecordResult" nillable="true" type="q23:DomainApiSuccess" />
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSTXTRecordResult" nillable="true" type="q23:TXTRecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -276,7 +276,7 @@
       <xs:element name="CreateDNSSRVRecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSSRVRecordResult" nillable="true" type="q25:DomainApiSuccess" />
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSSRVRecordResult" nillable="true" type="q25:SRVRecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -291,7 +291,7 @@
       <xs:element name="CreateDNSSPFRecordResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="CreateDNSSPFRecordResult" nillable="true" type="q27:DomainApiSuccess" />
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DomainServicesLib.Management" minOccurs="0" name="CreateDNSSPFRecordResult" nillable="true" type="q27:SPFRecord" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -397,6 +397,21 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="DeleteDNSSPFRecordResult" nillable="true" type="q41:DomainApiSuccess" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSRecordById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="domainName" type="xs:string" />
+            <xs:element minOccurs="1" name="recordId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDNSRecordByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DomainServicesLib" minOccurs="0" name="DeleteDNSRecordByIdResult" nillable="true" type="q42:DomainApiSuccess" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -508,7 +523,7 @@
               <xs:appinfo />
               <xs:documentation>
                 <summary>
-            The auto renew status on the domain: "True" or "False"
+            The auto renew status on the domain: "true" or "false"
             </summary>
               </xs:documentation>
             </xs:annotation>
@@ -548,7 +563,7 @@
               <xs:appinfo />
               <xs:documentation>
                 <summary>
-            The status of the locked flag on the domain: "True" or "False"
+            The status of the locked flag on the domain: "true" or "false"
             </summary>
               </xs:documentation>
             </xs:annotation>
@@ -578,7 +593,7 @@
               <xs:appinfo />
               <xs:documentation>
                 <summary>
-            The whois privacy status on the domain: "True" or "False"
+            The whois privacy status on the domain: "true" or "false"
             </summary>
               </xs:documentation>
             </xs:annotation>
@@ -635,6 +650,16 @@
               <xs:documentation>
                 <summary>
             The administrative contact.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DomainName" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The name of the domain.
             </summary>
               </xs:documentation>
             </xs:annotation>
@@ -913,39 +938,58 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="IPV6Address" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="IPV6Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The IPv6 address associated with the subdomain field.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
+            A subdomain for this DNS record. Given the domain name "example.com":
+            </summary>
+                    <example>
+            A value of "www" matches "www.example.com", "test" matches "test.example.com".
+            </example>
+                    <example>
+            A value of "@" matches only the second-level domain e.g. "example.com".
+            </example>
+                    <example>
+            A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
+            </example>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="AAAARecord" nillable="true" type="tns:AAAARecord" />
+      <xs:complexType name="DNSRecord">
+        <xs:sequence>
+          <xs:element name="RecordId" type="xs:int">
             <xs:annotation>
               <xs:appinfo />
               <xs:documentation>
                 <summary>
-            A subdomain for this DNS record. Given the domain name "example.com":
+            A unique id associated with this DNS record.
             </summary>
-                <example>
-            A value of "www" matches "www.example.com", "test" matches "test.example.com".
-            </example>
-                <example>
-            A value of "@" matches only the second-level domain e.g. "example.com".
-            </example>
-                <example>
-            A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
-            </example>
               </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="AAAARecord" nillable="true" type="tns:AAAARecord" />
+      <xs:element name="DNSRecord" nillable="true" type="tns:DNSRecord" />
       <xs:complexType name="ArrayOfARecord">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="ARecord" nillable="true" type="tns:ARecord" />
@@ -961,37 +1005,41 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="IPV4Address" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="IPV4Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The IPv4 address associated with the subdomain field.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A subdomain for this DNS record. Given the domain name "example.com":
             </summary>
-                <example>
+                    <example>
             A value of "www" matches "www.example.com", "test" matches "test.example.com".
             </example>
-                <example>
+                    <example>
             A value of "@" matches only the second-level domain e.g. "example.com".
             </example>
-                <example>
+                    <example>
             A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
             </example>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="ARecord" nillable="true" type="tns:ARecord" />
       <xs:complexType name="ArrayOfCNAMERecord">
@@ -1009,37 +1057,41 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="RedirectDomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="RedirectDomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The redirect domain: a full domain name like "www.example.com".
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A subdomain for this DNS record. Given the domain name "example.com":
             </summary>
-                <example>
+                    <example>
             A value of "www" matches "www.example.com", "test" matches "test.example.com".
             </example>
-                <example>
+                    <example>
             A value of "@" matches only the second-level domain e.g. "example.com".
             </example>
-                <example>
+                    <example>
             A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
             </example>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="CNAMERecord" nillable="true" type="tns:CNAMERecord" />
       <xs:complexType name="ArrayOfMXRecord">
@@ -1057,38 +1109,51 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="MailServer" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="MailServer" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The mail server name for the MX record. E.g. "mail.example.com".
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Priority" type="xs:int">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Priority" type="xs:int">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A number represtenting the priority order of the mail server in this MX record. Servers with lower priority numbers will be preferred by email clients.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
-            A subdomain for which this DNS record is valid. Examples: "www" matches "www.example.com", "@" matches "example.com" and a wildcard "*" will match "everything.example.com", "example.com", or "www.example.com".
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
+            A subdomain for this DNS record. Given the domain name "example.com":
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                    <example>
+            A value of "www" matches "www.example.com", "test" matches "test.example.com".
+            </example>
+                    <example>
+            A value of "@" matches only the second-level domain e.g. "example.com".
+            </example>
+                    <example>
+            A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
+            </example>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="MXRecord" nillable="true" type="tns:MXRecord" />
       <xs:complexType name="ArrayOfSPFRecord">
@@ -1106,37 +1171,41 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="SPFRecordValue" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="SPFRecordValue" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The SPF record value. See: http://www.openspf.org/SPF_Record_Syntax
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A subdomain for this DNS record. Given the domain name "example.com":
             </summary>
-                <example>
+                    <example>
             A value of "www" matches "www.example.com", "test" matches "test.example.com".
             </example>
-                <example>
+                    <example>
             A value of "@" matches only the second-level domain e.g. "example.com".
             </example>
-                <example>
+                    <example>
             A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
             </example>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="SPFRecord" nillable="true" type="tns:SPFRecord" />
       <xs:complexType name="ArrayOfSRVRecord">
@@ -1154,68 +1223,72 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="Port" type="xs:int">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="Port" type="xs:int">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The TCP or UDP port on which to the service is to be found.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Priority" type="xs:int">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Priority" type="xs:int">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The priority of the target host. Lower value means more preferred.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Protocol" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Protocol" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The transport protocol of the desired service.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Service" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Service" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A symbolic name for the service.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Target" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Target" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             The canonical hostname of the machine providing the service.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Weight" type="xs:int">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Weight" type="xs:int">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A relative weight for records with the same priority.
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="SRVRecord" nillable="true" type="tns:SRVRecord" />
       <xs:complexType name="ArrayOfTXTRecord">
@@ -1233,37 +1306,41 @@
             </summary>
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-          <xs:element name="Subdomain" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DNSRecord">
+            <xs:sequence>
+              <xs:element name="Subdomain" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             A subdomain for this DNS record. Given the domain name "example.com":
             </summary>
-                <example>
+                    <example>
             A value of "www" matches "www.example.com", "test" matches "test.example.com".
             </example>
-                <example>
+                    <example>
             A value of "@" matches only the second-level domain e.g. "example.com".
             </example>
-                <example>
+                    <example>
             A wildcard value of "*" will match "everything.example.com", "example.com", or "www.example.com"
             </example>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="TextRecord" nillable="true" type="xs:string">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="TextRecord" nillable="true" type="xs:string">
+                <xs:annotation>
+                  <xs:appinfo />
+                  <xs:documentation>
+                    <summary>
             Text which provides additional custom information about a domain name. 
             </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:element name="TXTRecord" nillable="true" type="tns:TXTRecord" />
     </xs:schema>
@@ -1461,6 +1538,12 @@
   <wsdl:message name="IDomainManagement_DeleteDNSSPFRecord_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDNSSPFRecordResponse" />
   </wsdl:message>
+  <wsdl:message name="IDomainManagement_DeleteDNSRecordById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSRecordById" />
+  </wsdl:message>
+  <wsdl:message name="IDomainManagement_DeleteDNSRecordById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDNSRecordByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDomainManagement">
     <wsdl:documentation>
       <summary>
@@ -1619,7 +1702,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="aRecord">A DNS A record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSARecord" message="tns:IDomainManagement_CreateDNSARecord_InputMessage" />
@@ -1632,7 +1715,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="cnameRecord">A DNS CNAME record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSCNAMERecord" message="tns:IDomainManagement_CreateDNSCNAMERecord_InputMessage" />
@@ -1645,7 +1728,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="mxRecord">A DNS MX record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSMXRecord" message="tns:IDomainManagement_CreateDNSMXRecord_InputMessage" />
@@ -1658,7 +1741,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="aaaaRecord">A DNS AAAA record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSAAAARecord" message="tns:IDomainManagement_CreateDNSAAAARecord_InputMessage" />
@@ -1671,7 +1754,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="txtRecord">A DNS TXT record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSTXTRecord" message="tns:IDomainManagement_CreateDNSTXTRecord_InputMessage" />
@@ -1684,7 +1767,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="srvRecord">A DNS SRV record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSSRVRecord" message="tns:IDomainManagement_CreateDNSSRVRecord_InputMessage" />
@@ -1697,7 +1780,7 @@
             </summary>
         <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
         <param name="spfRecord">A DNS SPF record.</param>
-        <returns>A success message corresponding to the operation</returns>
+        <returns>The record created by the operation.</returns>
         <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/CreateDNSSPFRecord" message="tns:IDomainManagement_CreateDNSSPFRecord_InputMessage" />
@@ -1793,6 +1876,19 @@
       </wsdl:documentation>
       <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/DeleteDNSSPFRecord" message="tns:IDomainManagement_DeleteDNSSPFRecord_InputMessage" />
       <wsdl:output wsaw:Action="https://api.namebright.com/IDomainManagement/DeleteDNSSPFRecordResponse" message="tns:IDomainManagement_DeleteDNSSPFRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSRecordById">
+      <wsdl:documentation>
+        <summary>
+            Deletes the specified DNS record using its record id.
+            </summary>
+        <param name="domainName">A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;</param>
+        <param name="recordId">The record id.</param>
+        <returns>A success message corresponding to the operation</returns>
+        <exception cref="T:System.ServiceModel.FaultException">Could not find domain within account.</exception>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="https://api.namebright.com/IDomainManagement/DeleteDNSRecordById" message="tns:IDomainManagement_DeleteDNSRecordById_InputMessage" />
+      <wsdl:output wsaw:Action="https://api.namebright.com/IDomainManagement/DeleteDNSRecordByIdResponse" message="tns:IDomainManagement_DeleteDNSRecordById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpsBinding_IDomainManagement" type="tns:IDomainManagement">
@@ -2016,6 +2112,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteDNSSPFRecord">
       <soap:operation soapAction="https://api.namebright.com/IDomainManagement/DeleteDNSSPFRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNSRecordById">
+      <soap:operation soapAction="https://api.namebright.com/IDomainManagement/DeleteDNSRecordById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
