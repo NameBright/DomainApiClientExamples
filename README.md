@@ -79,4 +79,6 @@ https://api.namebright.com/auth/Help
 * Domain API SOAP RPC 
   * Purchasing: https://api.namebright.com/soap/DomainPurchasing.svc?singleWsdl
   * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
+* Domain API REST
+  * Help documentation: https://api.namebright.com/rest/Help
 
