@@ -4,8 +4,9 @@
 
 #get a token
 token=`curl -d grant_type=client_credentials -d client_id=<account name>:<application name> --data-urlencode "client_secret=<enter api secret here>" https://api.namebright.com/auth/token | sed  's/{"access_token":"\([^"]*\).*/\1/'`
-#store the host records in a variable...
-hostrecs=`curl -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/domains/example.com/hostrecords`
+
+#list the host records
+curl -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/domains/example.com/hostrecords
 
 #create a new host record with POST data (application/x-www-form-urlencoded)
 curl -i -H "Authorization: Bearer $token" -d Subdomain=foo -d IPV4Address=123.123.123.123 https://api.namebright.com/rest/account/domains/example.com/hostrecords/a
@@ -15,9 +16,6 @@ curl -i -X DELETE -H "Authorization: Bearer $token" -d Subdomain=foo -d IPV4Addr
 
 #delete the record by id
 curl -i -X DELETE -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/domains/example.com/hostrecords/txt/9100
-
-#list the host records
-curl -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/domains/example.com/hostrecords
 
 #add a nameserver to a domain. Note: curl doesn't send Content-Length when no message body is present so we
 #need to do this ourselves:
