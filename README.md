@@ -82,3 +82,17 @@ https://api.namebright.com/auth/Help
 * Domain API REST
   * Help documentation: https://api.namebright.com/rest/Help
 
+Example Code
+------------
+Use the following examples to get started with the NameBrightAPI:
+
+* Soap.Net: a .NET WCF client application containing proxy code generated from 
+NameBrightAPI WSDL. This also includes sample WCF code for retrieving and
+using OAuth2 tokens.
+* BashCurl: a bash shell script which uses curl to interact with 
+NameBrightAPI's REST endpoint. 
+
+Download all examples as a zip file from GitHub here: 
+https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
+
+
