@@ -13,8 +13,21 @@ https://www.namebright.com/NewAccount
 2. Once you've created an account you can request API access here: 
 https://www.namebright.com/Settings#Api 
 
-Supported Functions 
-======================= 
+Example Code
+------------
+Use the following examples to get started with NameBright's Domain API:
+
+* Soap.Net: a .NET WCF client application containing proxy code generated from 
+Domain API WSDL. This also includes sample WCF code for retrieving and
+using OAuth2 tokens.
+* BashCurl: a bash shell script which uses curl to interact with 
+Domain API's REST endpoint. 
+
+Download all examples as a zip file from GitHub here: 
+https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
+
+Functions Supported by the API
+============================== 
 
 The following is a list of functions currently supported by the Domain 
 API: 
@@ -81,18 +94,5 @@ https://api.namebright.com/auth/Help
   * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
 * Domain API REST
   * Help documentation: https://api.namebright.com/rest/Help
-
-Example Code
-------------
-Use the following examples to get started with the NameBrightAPI:
-
-* Soap.Net: a .NET WCF client application containing proxy code generated from 
-NameBrightAPI WSDL. This also includes sample WCF code for retrieving and
-using OAuth2 tokens.
-* BashCurl: a bash shell script which uses curl to interact with 
-NameBrightAPI's REST endpoint. 
-
-Download all examples as a zip file from GitHub here: 
-https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
 
 
