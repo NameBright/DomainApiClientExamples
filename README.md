@@ -11,7 +11,7 @@ NameBright.com and request API access.
 1. Create a NameBright account here: 
 https://www.namebright.com/NewAccount 
 2. Once you've created an account you can request API access here: 
-https://www.namebright.com/Settings#Api 
+https://www.namebright.com/Settings#Api
 
 Example Code
 ------------
@@ -25,6 +25,19 @@ Domain API's REST endpoint.
 
 Download all examples as a zip file from GitHub here: 
 https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
+
+API Reference and Links
+-----------------------
+Links to the authorization, REST, and SOAP APIs:
+
+* OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
+https://api.namebright.com/auth/Help 
+* Domain API SOAP RPC (Browser-friendly WSDL Documents)
+  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.svc?singleWsdl
+  * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
+* Domain API REST
+  * Help documentation: https://api.namebright.com/rest/Help
+
 
 Functions Supported by the API
 ============================== 
@@ -83,16 +96,3 @@ specified in your account for that API application.
 * The NameBright API does not allow you to "play the drop". Domains 
 which are dropping that day will be listed as "unavailable" by the API. 
 This is by design. 
-
-Endpoints 
---------- 
-
-* OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
-https://api.namebright.com/auth/Help 
-* Domain API SOAP RPC 
-  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.svc?singleWsdl
-  * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
-* Domain API REST
-  * Help documentation: https://api.namebright.com/rest/Help
-
-
