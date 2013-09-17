@@ -11,9 +11,6 @@ curl -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/d
 #create a new host record with POST data (application/x-www-form-urlencoded)
 curl -i -H "Authorization: Bearer $token" -d Subdomain=foo -d IPV4Address=123.123.123.123 https://api.namebright.com/rest/account/domains/example.com/hostrecords/a
 
-#delete a host record by passing in the record's values
-curl -i -X DELETE -H "Authorization: Bearer $token" -d Subdomain=foo -d IPV4Address=123.123.123.123 https://api.namebright.com/rest/account/domains/example.com/hostrecords/a
-
 #delete the record by id
 curl -i -X DELETE -H "Authorization: Bearer $token" https://api.namebright.com/rest/account/domains/example.com/hostrecords/txt/9100
 
