@@ -33,8 +33,8 @@ Links to the authorization, REST, and SOAP APIs:
 * OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
 https://api.namebright.com/auth/Help 
 * Domain API SOAP RPC (Browser-friendly WSDL Documents)
-  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.svc?singleWsdl
-  * Management: https://api.namebright.com/soap/DomainManagement.svc?singleWsdl
+  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.xml
+  * Management: https://api.namebright.com/soap/DomainManagement.xml
 * Domain API REST
   * Help documentation: https://api.namebright.com/rest/Help
 
