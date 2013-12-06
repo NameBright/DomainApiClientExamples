@@ -136,22 +136,34 @@
           </xs:documentation>
         </xs:annotation>
         <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            An optional category id which corresponds to the category for a newly registered domain.
+            If both CategoryName and CategoryId are specified CategoryId takes precedence.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            An optional category name which corresponds to the category for a newly registered domain.
+            If both CategoryName and CategoryId are specified CategoryId takes precedence.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="DomainName" nillable="true" type="xs:string">
             <xs:annotation>
               <xs:appinfo />
               <xs:documentation>
                 <summary>
             A domain name in the form of &amp;lt;name&amp;gt;.&amp;lt;tld&amp;gt;
-            </summary>
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="TotalPrice" type="xs:decimal">
-            <xs:annotation>
-              <xs:appinfo />
-              <xs:documentation>
-                <summary>
-            The total dollar amount which will be deducted from the funded account. Use the UnitPrice from a DomainAvailability request and multiply it by the Years value.
             </summary>
               </xs:documentation>
             </xs:annotation>
@@ -301,6 +313,16 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element minOccurs="0" name="Promotion" nillable="true" type="tns:ProductPromotion">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Information regarding a promotion for a given product.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="Status" type="tns:DomainPurchasingStatus">
             <xs:annotation>
               <xs:appinfo />
@@ -324,6 +346,49 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="DomainAvailability" nillable="true" type="tns:DomainAvailability" />
+      <xs:complexType name="ProductPromotion">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>
+            <summary>
+            Contains promotional information related to a product availability request.
+            </summary>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            Promotion text as it appears on NameBright.com.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Discount" type="xs:decimal">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The discount represented by this promotion.
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PromotionPrice" type="xs:decimal">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>
+                <summary>
+            The promotion price of the product. This does not usually extend past 1 year for new registrations and transfers. 
+            </summary>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProductPromotion" nillable="true" type="tns:ProductPromotion" />
       <xs:simpleType name="DomainPurchasingStatus">
         <xs:annotation>
           <xs:appinfo />

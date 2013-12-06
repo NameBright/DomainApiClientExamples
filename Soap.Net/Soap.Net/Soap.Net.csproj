@@ -67,7 +67,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\NameBrightDomainManagement\DomainManagement.wsdl" />
+    <None Include="Service References\NameBrightDomainManagement\DomainManagement1.wsdl" />
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.AAAARecord.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -113,37 +113,13 @@
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSMXRecordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSSPFRecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSSRVRecordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.CreateDNSTXTRecordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSAAAARecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSARecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSCNAMERecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSMXRecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSRecordByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSSPFRecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSSRVRecordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteDNSTXTRecordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.DeleteNameServersResponse.datasource">
@@ -182,7 +158,7 @@
     <None Include="Service References\NameBrightDomainManagement\NameBright.DomainApi.Soap.NameBrightDomainManagement.TXTRecord.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NameBrightDomainPurchasing\DomainPurchasing.wsdl" />
+    <None Include="Service References\NameBrightDomainPurchasing\DomainPurchasing1.wsdl" />
     <None Include="Service References\NameBrightDomainPurchasing\NameBright.DomainApi.Soap.NameBrightDomainPurchasing.AccountFinancialInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

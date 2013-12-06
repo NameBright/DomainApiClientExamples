@@ -22,9 +22,13 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string DomainNameField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CategoryIdField;
         
-        private decimal TotalPriceField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        private string DomainNameField;
         
         private int YearsField;
         
@@ -38,6 +42,32 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string DomainName {
             get {
@@ -47,19 +77,6 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
                 if ((object.ReferenceEquals(this.DomainNameField, value) != true)) {
                     this.DomainNameField = value;
                     this.RaisePropertyChanged("DomainName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public decimal TotalPrice {
-            get {
-                return this.TotalPriceField;
-            }
-            set {
-                if ((this.TotalPriceField.Equals(value) != true)) {
-                    this.TotalPriceField = value;
-                    this.RaisePropertyChanged("TotalPrice");
                 }
             }
         }
@@ -264,6 +281,9 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductTypeNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private NameBright.DomainApi.Soap.NameBrightDomainPurchasing.ProductPromotion PromotionField;
+        
         private NameBright.DomainApi.Soap.NameBrightDomainPurchasing.DomainPurchasingStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -305,6 +325,19 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public NameBright.DomainApi.Soap.NameBrightDomainPurchasing.ProductPromotion Promotion {
+            get {
+                return this.PromotionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PromotionField, value) != true)) {
+                    this.PromotionField = value;
+                    this.RaisePropertyChanged("Promotion");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public NameBright.DomainApi.Soap.NameBrightDomainPurchasing.DomainPurchasingStatus Status {
             get {
@@ -327,6 +360,83 @@ namespace NameBright.DomainApi.Soap.NameBrightDomainPurchasing {
                 if ((this.UnitPriceField.Equals(value) != true)) {
                     this.UnitPriceField = value;
                     this.RaisePropertyChanged("UnitPrice");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPromotion", Namespace="http://schemas.datacontract.org/2004/07/DomainServicesLib.Purchasing")]
+    [System.SerializableAttribute()]
+    public partial class ProductPromotion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal DiscountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PromotionPriceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Discount {
+            get {
+                return this.DiscountField;
+            }
+            set {
+                if ((this.DiscountField.Equals(value) != true)) {
+                    this.DiscountField = value;
+                    this.RaisePropertyChanged("Discount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal PromotionPrice {
+            get {
+                return this.PromotionPriceField;
+            }
+            set {
+                if ((this.PromotionPriceField.Equals(value) != true)) {
+                    this.PromotionPriceField = value;
+                    this.RaisePropertyChanged("PromotionPrice");
                 }
             }
         }

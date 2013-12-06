@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://api.namebright.com/soap/DomainManagement.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://api.namebright.com/soap/DomainManagement.xml" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DomainManagement.wsdl" MetadataType="Wsdl" ID="4d316244-086e-4a90-8993-42d5d9b332b3" SourceId="1" SourceUrl="https://api.namebright.com/soap/DomainManagement.svc?singleWsdl" />
+    <MetadataFile FileName="DomainManagement1.wsdl" MetadataType="Wsdl" ID="464a00dc-2692-4e74-bc41-70e39de934d0" SourceId="1" SourceUrl="https://api.namebright.com/soap/DomainManagement.xml" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
