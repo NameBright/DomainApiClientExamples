@@ -17,9 +17,6 @@ Example Code
 ------------
 Use the following examples to get started with NameBright's Domain API:
 
-* Soap.Net: a .NET WCF client application containing proxy code generated from 
-Domain API WSDL. This also includes sample WCF code for retrieving and
-using OAuth2 tokens.
 * BashCurl: a bash shell script which uses curl to interact with 
 Domain API's REST endpoint. 
 
@@ -28,13 +25,10 @@ https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
 
 API Reference and Links
 -----------------------
-Links to the authorization, REST, and SOAP APIs:
+Links to the authorization and REST APIs:
 
 * OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
 https://api.namebright.com/auth/Help 
-* Domain API SOAP RPC (Browser-friendly WSDL Documents)
-  * Purchasing: https://api.namebright.com/soap/DomainPurchasing.xml
-  * Management: https://api.namebright.com/soap/DomainManagement.xml
 * Domain API REST
   * Help documentation: https://api.namebright.com/rest/Help
 
@@ -52,7 +46,8 @@ API:
 * Retrieve and update DNS host records for a domain 
 * Retrieve and update contact information for a domain 
 * Change domain level settings such as: locked status, auto-renew status 
-and privacy protection 
+and privacy protection
+* Retrieve and verify WhoIs Accuracy Information
 
 General Concepts 
 ================
