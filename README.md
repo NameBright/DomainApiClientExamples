@@ -11,7 +11,7 @@ NameBright.com and request API access.
 1. Create a NameBright account here: 
 https://www.namebright.com/NewAccount 
 2. Once you've created an account you can request API access here: 
-https://www.namebright.com/Settings#Api
+https://legacy.namebright.com/Settings#Api
 
 Example Code
 ------------
@@ -72,7 +72,7 @@ within your program flow.
 API Applications 
 ---------------- 
 You can set up as many API Applications as you wish at 
-https://www.namebright.com/Settings#Api. Each needs to have a name 
+https://legacy.namebright.com/Settings#Api. Each needs to have a name 
 unique to your account and specify an IP whitelist. After creating an 
 API Application, you will be assigned a secret used to obtain OAuth2 
 Bearer Tokens. Full application names are in the format of "account 
