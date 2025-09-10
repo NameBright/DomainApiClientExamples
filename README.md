@@ -9,7 +9,7 @@ To use the code examples, you must first have an account at
 NameBright.com and request API access. 
 
 1. Create a NameBright account here: 
-https://www.namebright.com/NewAccount 
+https://www.namebright.com/ 
 2. Once you've created an account you can request API access here: 
 https://legacy.namebright.com/Settings#Api
 
