@@ -1,5 +1,6 @@
 DomainApiClientExamples 
-======================= 
+=======================
+
 This repository contains example code for interacting with NameBright's 
 Domain API. NameBright.com is a registrar for buying and managing domain 
 names. NameBright has exposed this API for advanced users who wish to 
@@ -11,10 +12,11 @@ NameBright.com and request API access.
 1. Create a NameBright account here: 
 https://www.namebright.com/ 
 2. Once you've created an account you can request API access here: 
-https://legacy.namebright.com/Settings#Api
+https://my.namebright.com/my-account/api-management
 
 Example Code
 ------------
+
 Use the following examples to get started with NameBright's Domain API:
 
 * BashCurl: a bash shell script which uses curl to interact with 
@@ -25,10 +27,11 @@ https://github.com/NameBright/DomainApiClientExamples/archive/master.zip
 
 API Reference and Links
 -----------------------
+
 Links to the authorization and REST APIs:
 
-* OAuth2 authorization: https://api.namebright.com/auth/token Help page: 
-https://api.namebright.com/auth/Help 
+* OAuth2 authorization: https://api.namebright.com/auth/token
+  * Help documentation: https://api.namebright.com/auth/Help 
 * Domain API REST
   * Help documentation: https://api.namebright.com/rest/Help
 
@@ -47,7 +50,7 @@ API:
 * Retrieve and update contact information for a domain 
 * Change domain level settings such as: locked status, auto-renew status 
 and privacy protection
-* Retrieve and verify WhoIs Accuracy Information
+* Retrieve and verify Whois Accuracy Information
 
 General Concepts 
 ================
@@ -70,9 +73,10 @@ that you expect to receive HTTP 401 Authorization Required responses
 within your program flow. 
 
 API Applications 
----------------- 
+----------------
+
 You can set up as many API Applications as you wish at 
-https://legacy.namebright.com/Settings#Api. Each needs to have a name 
+https://my.namebright.com/my-account/api-management. Each needs to have a name 
 unique to your account and specify an IP whitelist. After creating an 
 API Application, you will be assigned a secret used to obtain OAuth2 
 Bearer Tokens. Full application names are in the format of "account 
@@ -84,7 +88,6 @@ Restrictions
 * Purchases: The API currently supports registering and renewing domains 
 within your account by drawing on your account's pre-funded balance. You 
 may only make purchases through the API by pre-funding your account. 
-
 * Rate limits: The API enforces a limit of 30 requests per 30 seconds. 
 * IP Whitelist: The API checks your IPv4 address against the whitelist 
 specified in your account for that API application. 
